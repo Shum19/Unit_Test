@@ -2,9 +2,11 @@ package HW.HW_1;
 
 public class Calculator {
     public static double calculateDiscount(double purchaseAmount, int discountAmount){
-        assert 0 <= discountAmount: "Negative discount";
-        assert 0 <= purchaseAmount: "Negative purchase amount";
-        assert purchaseAmount - (purchaseAmount * discountAmount/100) <= purchaseAmount: "Something wrong";
+        if (discountAmount < 0 || purchaseAmount < 0 || discountAmount > 100){
+            if (discountAmount < 0 || discountAmount > 100){throw new ArithmeticException("Invalid discount");}
+            else {throw new ArithmeticException("Invalid purchase amount");}
+        }
+
         return purchaseAmount - (purchaseAmount * discountAmount/100);
 
     }
